@@ -93,11 +93,13 @@ proc load*(filename: string; x, y, channels_in_file: var int; desired_channels: 
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = if desired_channels > 0: desired_channels else: components.int
+  channels_in_file = components.int
+
+  let actualChannels = if desired_channels > 0: desired_channels else: components.int 
 
   # Copy pixel data
   var pixelData: seq[byte]
-  newSeq(pixelData, x * y * channels_in_file)
+  newSeq(pixelData, x * y * actualChannels)
   copyMem(pixelData[0].addr, data, pixelData.len)
 
   # Free loaded image data
@@ -133,11 +135,13 @@ proc loadFromMemory*(buffer: seq[byte]; x, y, channels_in_file: var int; desired
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = if desired_channels > 0: desired_channels else: components.int
+  channels_in_file = components.int
+
+  let actualChannels = if desired_channels > 0: desired_channels else: components.int 
 
   # Copy pixel data
   var pixelData: seq[byte]
-  newSeq(pixelData, x * y * channels_in_file)
+  newSeq(pixelData, x * y * actualChannels)
   copyMem(pixelData[0].addr, data, pixelData.len)
 
   # Free loaded image data
@@ -170,11 +174,13 @@ proc loadFromFile*(f: File, x, y, channels_in_file: var int, desired_channels: i
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = if desired_channels > 0: desired_channels else: components.int
+  channels_in_file = components.int
+
+  let actualChannels = if desired_channels > 0: desired_channels else: components.int 
 
   # Copy pixel data
   var pixelData: seq[byte]
-  newSeq(pixelData, x * y * channels_in_file)
+  newSeq(pixelData, x * y * actualChannels)
   copyMem(pixelData[0].addr, data, pixelData.len)
 
   # Free loaded image data
@@ -236,11 +242,13 @@ proc load16*(filename: string; x, y, channels_in_file: var int; desired_channels
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = if desired_channels > 0: desired_channels else: components.int
+  channels_in_file = components.int
+
+  let actualChannels = if desired_channels > 0: desired_channels else: components.int 
 
   # Copy pixel data
   var pixelData: seq[uint16]
-  newSeq(pixelData, x * y * channels_in_file)
+  newSeq(pixelData, x * y * actualChannels)
   copyMem(pixelData[0].addr, data, pixelData.len)
 
   # Free loaded image data
@@ -276,11 +284,13 @@ proc loadFromFile16*(f: File; x, y, channels_in_file: var int; desired_channels:
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = if desired_channels > 0: desired_channels else: components.int
+  channels_in_file = components.int
+
+  let actualChannels = if desired_channels > 0: desired_channels else: components.int 
 
   # Copy pixel data
   var pixelData: seq[uint16]
-  newSeq(pixelData, x * y * channels_in_file)
+  newSeq(pixelData, x * y * actualChannels)
   copyMem(pixelData[0].addr, data, pixelData.len)
 
   # Free loaded image data
@@ -317,11 +327,13 @@ proc load16FromMemory*(buffer: seq[byte]; x, y, channels_in_file: var int; desir
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = if desired_channels > 0: desired_channels else: components.int
+  channels_in_file = components.int
+
+  let actualChannels = if desired_channels > 0: desired_channels else: components.int 
 
   # Copy pixel data
   var pixelData: seq[uint16]
-  newSeq(pixelData, x * y * channels_in_file)
+  newSeq(pixelData, x * y * actualChannels)
   copyMem(pixelData[0].addr, data, pixelData.len)
 
   # Free loaded image data
@@ -383,11 +395,13 @@ proc loadF*(filename: string; x, y, channels_in_file: var int; desired_channels:
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = if desired_channels > 0: desired_channels else: components.int
+  channels_in_file = components.int
+
+  let actualChannels = if desired_channels > 0: desired_channels else: components.int 
 
   # Copy pixel data
   var pixelData: seq[float32]
-  newSeq(pixelData, x * y * channels_in_file)
+  newSeq(pixelData, x * y * actualChannels)
   copyMem(pixelData[0].addr, data, pixelData.len)
 
   # Free loaded image data
@@ -423,11 +437,13 @@ proc loadFFromMemory*(buffer: seq[byte]; x, y, channels_in_file: var int; desire
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = if desired_channels > 0: desired_channels else: components.int
+  channels_in_file = components.int
+
+  let actualChannels = if desired_channels > 0: desired_channels else: components.int 
 
   # Copy pixel data
   var pixelData: seq[float32]
-  newSeq(pixelData, x * y * channels_in_file)
+  newSeq(pixelData, x * y * actualChannels)
   copyMem(pixelData[0].addr, data, pixelData.len)
 
   # Free loaded image data
@@ -460,11 +476,13 @@ proc loadFFromFile*(f: File, x, y, channels_in_file: var int, desired_channels: 
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = if desired_channels > 0: desired_channels else: components.int
+  channels_in_file = components.int
+
+  let actualChannels = if desired_channels > 0: desired_channels else: components.int 
 
   # Copy pixel data
   var pixelData: seq[float32]
-  newSeq(pixelData, x * y * channels_in_file)
+  newSeq(pixelData, x * y * actualChannels)
   copyMem(pixelData[0].addr, data, pixelData.len)
 
   # Free loaded image data
