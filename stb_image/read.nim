@@ -93,7 +93,7 @@ proc load*(filename: string; x, y, channels_in_file: var int; desired_channels: 
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = components.int
+  channels_in_file = if desired_channels > 0: desired_channels else: components.int
 
   # Copy pixel data
   var pixelData: seq[byte]
@@ -133,7 +133,7 @@ proc loadFromMemory*(buffer: seq[byte]; x, y, channels_in_file: var int; desired
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = components.int
+  channels_in_file = if desired_channels > 0: desired_channels else: components.int
 
   # Copy pixel data
   var pixelData: seq[byte]
@@ -170,7 +170,7 @@ proc loadFromFile*(f: File, x, y, channels_in_file: var int, desired_channels: i
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = components.int
+  channels_in_file = if desired_channels > 0: desired_channels else: components.int
 
   # Copy pixel data
   var pixelData: seq[byte]
@@ -236,7 +236,7 @@ proc load16*(filename: string; x, y, channels_in_file: var int; desired_channels
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = components.int
+  channels_in_file = if desired_channels > 0: desired_channels else: components.int
 
   # Copy pixel data
   var pixelData: seq[uint16]
@@ -276,7 +276,7 @@ proc loadFromFile16*(f: File; x, y, channels_in_file: var int; desired_channels:
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = components.int
+  channels_in_file = if desired_channels > 0: desired_channels else: components.int
 
   # Copy pixel data
   var pixelData: seq[uint16]
@@ -317,7 +317,7 @@ proc load16FromMemory*(buffer: seq[byte]; x, y, channels_in_file: var int; desir
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = components.int
+  channels_in_file = if desired_channels > 0: desired_channels else: components.int
 
   # Copy pixel data
   var pixelData: seq[uint16]
@@ -383,7 +383,7 @@ proc loadF*(filename: string; x, y, channels_in_file: var int; desired_channels:
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = components.int
+  channels_in_file = if desired_channels > 0: desired_channels else: components.int
 
   # Copy pixel data
   var pixelData: seq[float32]
@@ -423,7 +423,7 @@ proc loadFFromMemory*(buffer: seq[byte]; x, y, channels_in_file: var int; desire
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = components.int
+  channels_in_file = if desired_channels > 0: desired_channels else: components.int
 
   # Copy pixel data
   var pixelData: seq[float32]
@@ -460,7 +460,7 @@ proc loadFFromFile*(f: File, x, y, channels_in_file: var int, desired_channels: 
   # Set the returns
   x = width.int
   y = height.int
-  channels_in_file = components.int
+  channels_in_file = if desired_channels > 0: desired_channels else: components.int
 
   # Copy pixel data
   var pixelData: seq[float32]
